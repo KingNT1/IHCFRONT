@@ -23,6 +23,14 @@
 
 <body>
 
+    <style>
+        .jumbotron {
+            background-image: url('https://livedemo00.template-help.com/wt_63853_v4/soccer/images/post-gloria-1-769x429.jpg');
+            background-size: cover;
+            height: 100%;
+        }
+    </style>
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">
             <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-41x55.png" alt="">
@@ -80,8 +88,6 @@
             </form>
         </div>
     </nav>
-
-    <br>
 
     @yield('content');
 
