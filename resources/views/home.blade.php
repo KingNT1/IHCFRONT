@@ -62,6 +62,7 @@
 </main>
 
 <div class="container">
+  {{--Tournament cards--}}
   <div class="row">
     <div class="col-8">
       <br>
@@ -120,7 +121,10 @@
               </div>
             </div>
           </div>
+          {{--End--}}
           <br>
+
+          {{--Advisement jumbotron--}}
           <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
               <h1 class="display-4 font-italic">Plataforma especializada en torneos</h1>
@@ -128,11 +132,72 @@
               <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continua leyendo...</a></p>
             </div>
           </div>
+          {{--End--}}
+
+          <h5>Próximo partido<h5>
+              <hr>
+              <p>PENE</p>
+
+
     </div>
     <div class="col-4">
       <br>
       <h5>Resultados<h5>
           <hr>
+          <ul class="list-group">
+            <li class="list-group-item text-center">
+              <br>
+
+              <p class="font-weight-light">
+                <span class="pull-left">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                Bravaria 3 - 0 Lotus
+                <span class="pull-right">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                <br>
+                <small>Lima, Perú</small>
+              </p>
+            </li>
+
+            <li class="list-group-item text-center">
+              <br>
+              <p class="font-weight-light">
+                <span class="pull-left">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                Sport Boys II 3 - 0 Catnip
+                <span class="pull-right">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                <br>
+                <small>Lima, Perú</small>
+              </p>
+            </li>
+
+            <li class="list-group-item text-center">
+              <br>
+              <p class="font-weight-light">
+                <span class="pull-left">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                Squirrel 3 - 0 Barbatos
+                <span class="pull-right">
+                  <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
+                    class="img-reponsive img-rounded" />
+                </span>
+                <br>
+                <small>Lima, Perú</small>
+              </p>
+            </li>
+
+          </ul>
     </div>
   </div>
 
