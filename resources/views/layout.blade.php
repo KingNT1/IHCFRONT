@@ -18,7 +18,7 @@
     </script>
     <link rel="stylesheet" href="https://dl.dropbox.com/s/vo5ud61ci1ohon1/navbar-top-fixed.css">
 
-    <title>Document</title>
+    <title>Do League</title>
 </head>
 
 <body>
@@ -89,16 +89,16 @@
         </div>
     </nav>
 
-    @yield('content');
+    @yield('content')
 
-    <div class="navbar navbar-default navbar-dark bg-dark navbar-fixed-bottom">
+    <footer class="navbar navbar-default navbar-dark bg-dark navbar-fixed-bottom">
         <div class="container">
             <p class="navbar-text pull-left">© 2020 - LOST.
             </p>
             <a href="..." class="navbar-btn btn-danger btn pull-right">
                 Siguenos en Facebook</a>
         </div>
-    </div>
+    </footer>
 
 </body>
 

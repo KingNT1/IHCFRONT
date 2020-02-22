@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::group(['prefix' => 'tournament'], function () {
+    Route::get('', function () {
+        return view('tournament.index');
+    });
+    Route::get('create', function () {
+        return view('tournament.create');
+    });
+});
