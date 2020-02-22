@@ -134,7 +134,7 @@
           </div>
           {{--End--}}
 
-          <h5>Próximo partido<h5>
+          <h5>Partido especial<h5>
               <hr>
               <div class="card">
                 <div class="card-body">
@@ -177,7 +177,7 @@
     </div>
     <div class="col-4">
       <br>
-      <h5>Resultados<h5>
+      <h5>Últimos resultados<h5>
           <hr>
           <ul class="list-group">
             <li class="list-group-item text-center">
@@ -194,7 +194,8 @@
                     class="img-reponsive img-rounded" />
                 </span>
                 <br>
-                <small>Lima, Perú</small>
+                <small>Lima, Perú</small><br>
+                <small>Torneo #4</small>
               </p>
             </li>
 
@@ -211,7 +212,8 @@
                     class="img-reponsive img-rounded" />
                 </span>
                 <br>
-                <small>Lima, Perú</small>
+                <small>Pucallpa, Perú</small><br>
+                <small>Torneo #1</small>
               </p>
             </li>
 
@@ -228,7 +230,8 @@
                     class="img-reponsive img-rounded" />
                 </span>
                 <br>
-                <small>Lima, Perú</small>
+                <small>Junín, Perú</small><br>
+                <small>Torneo #2</small>
               </p>
             </li>
           </ul>

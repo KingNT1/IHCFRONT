@@ -18,3 +18,15 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/tournament/1', function () {
+    return view('tournament');
+});
+
+Route::get('/tournament', function () {
+    return view('tournament_list');
+});
+
+Route::get('tournament/1/teams/1', function () {
+    return view('teaminfo');
+});
