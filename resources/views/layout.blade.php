@@ -44,13 +44,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/home">Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Organizar torneo</a>
+                    <a class="nav-link" href="/tournament/create">Organizar torneo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/tournament">Torneos en curso</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tournament/personal">Mis torneos</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -72,16 +75,16 @@
         </div>
     </nav>
 
-    @yield('content');
+    @yield('content')
 
-    <div class="navbar navbar-default navbar-dark bg-dark navbar-fixed-bottom">
+    <footer class="navbar navbar-default navbar-dark bg-dark navbar-fixed-bottom">
         <div class="container">
             <p class="navbar-text pull-left">© 2020 - LOST.
             </p>
             <a href="..." class="navbar-btn btn-danger btn pull-right">
                 Siguenos en Facebook</a>
         </div>
-    </div>
+    </footer>
 
 </body>
 
