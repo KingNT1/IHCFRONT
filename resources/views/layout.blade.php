@@ -91,6 +91,15 @@
 
     @yield('content');
 
+    <div class="navbar navbar-default navbar-dark bg-dark navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">© 2020 - LOST.
+            </p>
+            <a href="..." class="navbar-btn btn-danger btn pull-right">
+                Siguenos en Facebook</a>
+        </div>
+    </div>
+
 </body>
 
 </html>
