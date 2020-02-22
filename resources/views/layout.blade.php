@@ -50,7 +50,7 @@
                     <a class="nav-link" href="#">Organizar torneo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Torneos en curso</a>
+                    <a class="nav-link" href="/tournament">Torneos en curso</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

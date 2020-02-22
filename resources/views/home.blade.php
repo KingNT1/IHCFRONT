@@ -12,27 +12,25 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="first-slide d-block w-100"
-          src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/slider-1-slide-3-1920x671.jpg"
+          src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/slider-1-slide-1-1920x671.jpg"
           alt="First slide">
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>Example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-              metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            <h1>El lugar perfecto</h1>
+            <p>Para organizar tus torneos de fútbol desde la comodidad de tu hogar o oficina.</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Empieza ya</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <img class="second-slide d-block w-100"
-          src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/slider-1-slide-3-1920x671.jpg"
+          src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/slider-1-slide-2-1920x671.jpg"
           alt="Second slide">
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-              metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            <h1>Los mejores</h1>
+            <p>En servicios para la organización de torneos en línea.</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Más información</a></p>
           </div>
         </div>
       </div>
@@ -42,10 +40,11 @@
           alt="Third slide">
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1>One more for good measure.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-              metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            <h1>Jugamos al fútbol</h1>
+            <p>Con el conocimiento que tenemos, brindamos una interfaz amigable y funcionalidades
+              perfectas para lo que estás buscando.
+            </p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Inicia un torneo</a></p>
           </div>
         </div>
       </div>
@@ -66,7 +65,7 @@
   <div class="row">
     <div class="col-8">
       <br>
-      <h5>Ultimos torneos creados<h5>
+      <h5>Inscripciones abiertas<h5>
           <hr>
           <div class="row">
             <div class="col-6">
