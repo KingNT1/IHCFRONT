@@ -2,7 +2,26 @@
 
 @section('content')
 
+<main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide d-block w-100"
+                    src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/bg-breadcrumbs-1-1920x726.jpg"
+                    alt="First slide" style="height:300px;">
+                <div class="container">
+                    <div class="carousel-caption text-center">
+                        <h1>Crear torneo</h1>
+                        <h4 class="font-weight-light">--</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
 <div class="container">
+
     {{--Tournament cards--}}
     <div class="row">
         <div class="col-8">
@@ -30,12 +49,12 @@
                         </div>
 
                         <div class="row">
-                            <div class="form-group col-6">
+                            <div class="form-group col-6 font-weight-normal">
                                 <!-- Name -->
                                 <label for="">Fecha de inicio</label>
                                 <input type="date" class="form-control mb-4" placeholder="Fecha inicio">
                             </div>
-                            <div class="form-group col-6">
+                            <div class="form-group col-6 font-weight-normal">
                                 <!-- Email -->
                                 <label for="">Fecha de final</label>
                                 <input type="date" class="form-control mb-4" placeholder="Fecha fin">
@@ -43,9 +62,8 @@
                         </div>
 
                         <!-- Subject -->
-                        <select class="browser-default custom-select mb-4">
-                            <option value="" selected disabled>Escoja su deporte</option>
-                            <option value="1">Fútbol</option>
+                        <select class="browser-default custom-select mb-4" disabled>
+                            <option value="1" selected>Fútbol sala</option>
                             <option value="2">Voley</option>
                             <option value="3">Baloncesto</option>
                             <option value="4">Tenis</option>
@@ -67,17 +85,17 @@
                         </div>
 
                         <!-- Copy -->
-                        <div class="custom-control custom-checkbox mb-4">
+                        <div class="custom-control custom-checkbox mb-4 font-weight-light">
                             <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-                            <label class="custom-control-label" for="defaultContactFormCopy">Enviarme una copia.</label>
+                            <label class="custom-control-label" for="defaultContactFormCopy">Enviarme una copia</label>
                         </div>
 
                         <!-- Send button -->
-                        <button class="btn btn-primary btn-block" type="submit">Registrar</button>
+                        <button class="btn btn-primary btn btn-info" type="submit">Registrar</button>
 
                     </form>
                     <!-- Default form contact -->
-
+                    <br>
                     {{--Advisement jumbotron--}}
                     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
                         <div class="col-md-6 px-0">
@@ -92,60 +110,25 @@
         </div>
         <div class="col-4">
             <br>
-            <h5>Equipos disponibles<h5>
+            <h5>Locales disponibles<h5>
                     <hr>
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">
-                            <br>
+                    <div class="form-group font-weight-normal">
+                        <select class="custom-select">
+                            <option value="0">Selecciona un local...</option>
+                            <option value="1">El Porvenir</option>
+                            <option value="2">Campo de Marte</option>
+                            <option value="3">El Rosario</option>
+                            <option value="4">Parque Surco</option>
+                        </select>
+                    </div>
 
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                    Bravaria
-                                </label>
-                                <br>
-                                <small>Lima, Perú</small>
-                            </p>
-                        </li>
-
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                    Catnip
-                                </label>
-                                <br>
-                                <small>Lima, Perú</small>
-                            </p>
-                        </li>
-
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                    Barbatos
-                                </label>
-                                <br>
-                                <small>Lima, Perú</small>
-                            </p>
-                        </li>
-                    </ul>
-
-
+                    <br>
+                    <h5>Premios<h5>
+                            <hr>
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    placeholder="Una pequeña descripción de los premios"></textarea>
+                            </div>
         </div>
     </div>
 

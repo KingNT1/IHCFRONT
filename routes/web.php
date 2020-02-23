@@ -36,3 +36,9 @@ Route::group(['prefix' => 'tournament'], function () {
         return view('tournament.create');
     });
 });
+
+Route::group(['prefix' => 'teams'], function () {
+    Route::get('create', function () {
+        return view('teams.create');
+    });
+});
