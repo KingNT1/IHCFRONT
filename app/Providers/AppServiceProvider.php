@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Providers;
-
+session_start([
+    'cookie_lifetime' => 86400,
+]);
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->composer();
+    }
+
+    public function composer(){
+        view()->share($_SESSION);
     }
 }

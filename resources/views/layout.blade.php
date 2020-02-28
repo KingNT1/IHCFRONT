@@ -68,10 +68,30 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav ml-auto">
+                @if(isset($_SESSION['user_session']))
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hola, {{$_SESSION['user_session']['name']}}</a>
+                </li>
+                @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right"
+                        style="padding: 15px; padding-bottom: 10px; width:300px;">
+                        <form class="form-horizontal" method="post" action="{{route('user.signin')}}"
+                            accept-charset="UTF-8">
+                            <input class="form-control login" type="email" name="userEmail" placeholder="Email"><br>
+                            <input class="form-control login" type="password" name="userPassword"
+                                placeholder="Contraseña"><br>
+                            <input class="btn btn-primary" type="submit" name="submit" value="Login">
+                        </form>
+                    </div>
+                </li>
+                @endif
+            </ul>
         </div>
     </nav>
 

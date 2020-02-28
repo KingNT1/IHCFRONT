@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/home', function () {
     return view('home');
 });
+
+
+Route::post('/signin', ['as' => 'user.signin', 'uses' => 'UserController@signin']);
+
+
 
 Route::group(['prefix' => 'tournament'], function () {
     Route::get('1', function () {
