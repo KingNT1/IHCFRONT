@@ -61,7 +61,11 @@ class UserRepository
         if (array_key_exists('user_session', $_SESSION)) {
             return \redirect()->guest('/home');
         } else {
-            return \view('home');
+            $tournaments = DB::table('tournament')
+            ->where('type', 1)
+            ->take(4)
+            ->get();
+        return view('home')->with(['tournaments' => $tournaments]);
         }
     }
 
