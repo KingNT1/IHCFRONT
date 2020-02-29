@@ -53,7 +53,8 @@
             <br><br>
             <p><a class="btn btn-lg btn-primary" href="{{url('tournament/create')}}" role="button">Añadir torneo</a></p>
             <br>
-            <h5>Torneo #1 - Posiciones</h5>
+            @if(sizeof($tournaments) > 0)
+            <h5>Posiciones - Torneo {{$tournaments[0]->name}}</h5>
             <hr><br>
             <table class="table">
                 <thead>
@@ -113,57 +114,16 @@
                 </tbody>
             </table>
 
-            <br>
-            <h5>Torneo #2 - Posiciones</h5>
-            <hr><br>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center font-weight-light">#</th>
-                        <th scope="col" class="text-center font-weight-light">Equipo</th>
-                        <th scope="col" class="text-center font-weight-light">GF</th>
-                        <th scope="col" class="text-center font-weight-light">GC</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="text-center font-weight-light">1</th>
-                        <td class="text-center"><img
-                                src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-31x41.png"
-                                class="img-reponsive img-rounded" />
-                        </td>
-                        <td class="text-center font-weight-light">25</td>
-                        <td class="text-center font-weight-light">4</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-center font-weight-light">2</th>
-                        <td class="text-center"><img
-                                src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
-                                class="img-reponsive img-rounded" />
-                        </td>
-                        <td class="text-center font-weight-light">20</td>
-                        <td class="text-center font-weight-light">7</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-center font-weight-light">3</th>
-                        <td class="text-center"><img
-                                src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-real-madrid-28x37.png"
-                                class="img-reponsive img-rounded" />
-                        </td>
-                        <td class="text-center font-weight-light">16</td>
-                        <td class="text-center font-weight-light">12</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-center font-weight-light">4</th>
-                        <td class="text-center"><img
-                                src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-barcelona-30x35.png"
-                                class="img-reponsive img-rounded" />
-                        </td>
-                        <td class="text-center font-weight-light">12</td>
-                        <td class="text-center font-weight-light">20</td>
-                    </tr>
-                </tbody>
-            </table>
+            @else
+            <h5>Información</h5>
+            <hr>
+            <div class="card">
+                <div class="card-body font-weight-light">
+                    Usted aún no ha creado ningún torneo
+                </div>
+            </div>
+
+            @endif
         </div>
     </div>
 

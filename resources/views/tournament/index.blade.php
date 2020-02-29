@@ -33,7 +33,8 @@
                         <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/tournament/1/info">Torneo {{$t->name}}</a></h5>
+                            <h5 class="card-title"><a href="/tournament/{{$t->idtournament}}/info">Torneo
+                                    {{$t->name}}</a></h5>
                             <small><span class="badge badge-warning">Liga</span> Iniciado el
                                 {{date('d-m-Y', strtotime($t->date_init))}}</small><br>
                             <hr>

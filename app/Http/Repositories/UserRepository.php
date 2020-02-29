@@ -64,7 +64,10 @@ class UserRepository
 
     public function getHome()
     {
-        return view('home');
+        $tournaments = DB::table('tournament')
+            ->where('type', 1)
+            ->get();
+        return view('home')->with(['tournaments' => $tournaments]);
     }
 
     public function registerView()

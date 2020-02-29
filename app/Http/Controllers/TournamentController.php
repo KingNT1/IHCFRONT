@@ -99,50 +99,76 @@ class TournamentController extends Controller
     public function show($id)
     {
 
-        $response = DB::table('tournament')
-            ->join(
-                'tournament_has_team',
-                'tournament.idtournament',
-                '=',
-                'tournament_has_team.tournament_idtournament'
-            )
-            ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
-            ->where('tournament.idtournament', '=', $id)
-            ->select(
-                'tournament.*',
-                'team.idteam as team_id',
-                'team.name as team_name',
-                'team.coach as team_coach',
-                'team.initials as team_initials',
-                'team.ubication as team_ubication'
-            )->get();
+        $hasTeam = DB::table('tournament_has_team')
+            ->where('tournament_idtournament', '=', $id)
+            ->get();
 
-        //Equipos del torneo
-        $teamsArray = [];
+        //dd(count($hasTeam));
 
-        foreach ($response as $team) {
-            array_push($teamsArray, (object) array(
-                'id' => $team->team_id,
-                'name' => $team->team_name,
-                'coach' => $team->team_coach,
-                'initials' => $team->team_initials,
-                'ubication' => $team->team_ubication
-            ));
+        if (count($hasTeam) >= 1) {
+            $response = DB::table('tournament')
+                ->join(
+                    'tournament_has_team',
+                    'tournament.idtournament',
+                    '=',
+                    'tournament_has_team.tournament_idtournament'
+                )
+                ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
+                ->where('tournament.idtournament', '=', $id)
+                ->select(
+                    'tournament.*',
+                    'team.idteam as team_id',
+                    'team.name as team_name',
+                    'team.coach as team_coach',
+                    'team.initials as team_initials',
+                    'team.ubication as team_ubication'
+                )->get();
+
+            //Equipos del torneo
+            $teamsArray = [];
+
+            foreach ($response as $team) {
+                array_push($teamsArray, (object) array(
+                    'id' => $team->team_id,
+                    'name' => $team->team_name,
+                    'coach' => $team->team_coach,
+                    'initials' => $team->team_initials,
+                    'ubication' => $team->team_ubication
+                ));
+            }
+
+            //Info del torneo
+            $tournament = array(
+                'idtournament' => $response[0]->idtournament,
+                'name' => $response[0]->name,
+                'description' => $response[0]->description,
+                'date_init' => $response[0]->date_init,
+                'date_end' => $response[0]->date_end
+            );
+
+            return \view('tournament.info')->with([
+                'tournament' => $tournament,
+                'teams' => $teamsArray
+            ]);
+        } else {
+            $response = DB::table('tournament')
+                ->where('idtournament', '=', $id)->get();
+
+            $tournament = array(
+                'idtournament' => $response[0]->idtournament,
+                'name' => $response[0]->name,
+                'description' => $response[0]->description,
+                'date_init' => $response[0]->date_init,
+                'date_end' => $response[0]->date_end
+            );
+
+            $teamsArray = [];
+
+            return \view('tournament.info')->with([
+                'tournament' => $tournament,
+                'teams' => $teamsArray
+            ]);
         }
-
-        //Info del torneo
-        $tournament = array(
-            'idtournament' => $response[0]->idtournament,
-            'name' => $response[0]->name,
-            'description' => $response[0]->description,
-            'date_init' => $response[0]->date_init,
-            'date_end' => $response[0]->date_end
-        );
-
-        return \view('tournament.info')->with([
-            'tournament' => $tournament,
-            'teams' => $teamsArray
-        ]);
     }
 
     /**
