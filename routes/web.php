@@ -11,13 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect(url('/home'));
-});
-
-
-
-
 Route::get('/', ['as' => 'user.signinView', 'uses' => 'UserController@signinView']);
 Route::post('/signin', ['as' => 'user.signin', 'uses' => 'UserController@signin']);
 Route::get('/close', ['as' => 'user.close', 'uses' => 'UserController@logout']);
@@ -40,13 +33,13 @@ Route::group(['prefix' => 'tournament'], function () {
 
     Route::post('type_tournament', ['as' => 'tournament.type', 'uses' => 'TournamentController@typeByDeport']);
     Route::post('', ['as' => 'tournament.save', 'uses' => 'TournamentController@store']);
-    Route::get('1/teams/1', function () {
-        return view('teaminfo');
-    });
+    // Route::get('1/teams/1', function () {
+    //     return view('teaminfo');
+    // });
 });
 
 Route::group(['prefix' => 'teams'], function () {
-    Route::get('create', function () {
-        return view('teams.create');
-    });
+    // Route::get('create', function () {
+    //     return view('teams.create');
+    // });
 });

@@ -1,0 +1,27 @@
+runtime: php
+env: flex
+service: ihc
+
+runtime_config:
+  document_root: public
+
+env_variables:
+  APP_LOG: errorLog
+  APP_KEY: base64:XC65MZDrMHVSgilzDOrGLevgn6EQtBBOr755g+TdI4I=
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+
+  QUEUE_DRIVER: database
+
+  DB_CONNECTION: mysql
+  DB_HOST: 34.74.217.28
+  DB_PORT: 3306
+  DB_DATABASE: dream-starts
+  DB_USERNAME: root
+  DB_PASSWORD: root
+  DB_SOCKET: /cloudsql/skillful-way-264720:us-east1:dream-stars
+
+beta_settings:
+  # for Cloud SQL, set this value to the Cloud SQL connection name,
+  # e.g. "project:region:cloudsql-instance"
+  cloud_sql_instances: "skillful-way-264720:us-east1:dream-stars"
