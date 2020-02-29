@@ -25,6 +25,8 @@ Route::group(['prefix' => 'tournament'], function () {
     Route::get('create', ['as' => 'tournament.create', 'uses' => 'TournamentController@create']);
     Route::get('{id}/info', ['as' => 'tournament.show', 'uses' => 'TournamentController@show']);
 
+    Route::post('type_tournament', ['as' => 'tournament.type', 'uses' => 'TournamentController@typeByDeport']);
+    Route::post('', ['as' => 'tournament.save', 'uses' => 'TournamentController@store']);
     Route::get('1/teams/1', function () {
         return view('teaminfo');
     });

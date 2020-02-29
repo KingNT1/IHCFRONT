@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TournamentController extends Controller
 {
@@ -13,12 +14,19 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        return view('tournament.index');
+        $tournaments = DB::table('tournament')
+            ->where('type', 1);
+
+        return view('tournament.index')->with(['tournaments' => $tournaments]);
     }
 
-    public function personal()
+    public function personal($idUser)
     {
-        return view('tournament.personal');
+        $tournaments = DB::table('tournament')
+            ->where('user_iduser', $_SESSION['user_session']['iduser'])
+            ->orWhere('type', 2);
+
+        return view('tournament.personal')->with(['tournaments' => $tournaments]);
     }
 
     /**
@@ -28,9 +36,18 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        return view('tournament.create');
+        $deports = DB::table('deport')->get();
+
+        return view('tournament.create')->with(['deports' => $deports]);
     }
 
+    public function typeByDeport(Request $request)
+    {
+
+        return response()->json([
+            'message' => 'Hola',
+        ], 201);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +56,8 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        dd($request);
     }
 
     /**
