@@ -5,10 +5,9 @@ runtime_config:
   document_root: public
 
 env_variables:
+  APP_ENV: production
   APP_LOG: errorLog
   APP_KEY: base64:XC65MZDrMHVSgilzDOrGLevgn6EQtBBOr755g+TdI4I=
-  APP_STORAGE: /tmp
-  VIEW_COMPILED_PATH: /tmp
   CACHE_DRIVER: database
   SESSION_DRIVER: database
 
