@@ -31,7 +31,7 @@ $(document).on("click", "#btn-create-team", function() {
             tournamentId: tourId
         },
         success: function(result) {
-            console.log(result.message);
+            window.location.href = "../../../tournament/" + result.id + "/info";
 
         },
         error: function() {
