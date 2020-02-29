@@ -98,7 +98,49 @@ class TournamentController extends Controller
      */
     public function show($id)
     {
-        return view('tournament.info');
+
+        $response = DB::table('tournament')
+            ->join(
+                'tournament_has_team',
+                'tournament.idtournament',
+                '=',
+                'tournament_has_team.tournament_idtournament'
+            )
+            ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
+            ->where('tournament.idtournament', '=', $id)
+            ->select(
+                'tournament.*',
+                'team.name as team_name',
+                'team.coach as team_coach',
+                'team.initials as team_initials',
+                'team.ubication as team_ubication'
+            )->get();
+
+        //Equipos del torneo
+        $teamsArray = [];
+
+        foreach ($response as $team) {
+            array_push($teamsArray, (object) array(
+                'name' => $team->team_name,
+                'coach' => $team->team_coach,
+                'initials' => $team->team_initials,
+                'ubication' => $team->team_ubication
+            ));
+        }
+
+        //Info del torneo
+        $tournament = array(
+            'idtournament' => $response[0]->idtournament,
+            'name' => $response[0]->name,
+            'description' => $response[0]->description,
+            'date_init' => $response[0]->date_init,
+            'date_end' => $response[0]->date_end
+        );
+
+        return \view('tournament.info')->with([
+            'tournament' => $tournament,
+            'teams' => $teamsArray
+        ]);
     }
 
     /**

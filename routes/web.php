@@ -27,6 +27,10 @@ Route::get('/home', ['as' => 'home', 'uses' => 'UserController@getHome']);
 
 //Teams
 Route::group(['prefix' => 'team'], function () {
+    //Vista de crear equipo en determinado torneo (id de torneo)
+    Route::get('/create/t/{id}', ['as' => 'team.createView', 'uses' =>'TeamController@createView']);
+    
+    //Vista de info equipo en determinado torneo (id de equipo)
     Route::get('/info/{id}', ['as' => 'team.info', 'uses' => 'TeamController@teamView']);
 
     Route::post('/create', ['as' => 'team.create', 'uses' => 'TeamController@createTeam']);
@@ -45,8 +49,3 @@ Route::group(['prefix' => 'tournament'], function () {
     });
 });
 
-Route::group(['prefix' => 'teams'], function () {
-    Route::get('create', function () {
-        return view('teams.create');
-    });
-});

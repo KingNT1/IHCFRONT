@@ -16,7 +16,7 @@
                 <div class="container">
                     <div class="carousel-caption text-center">
                         <h1>Registra tu equipo</h1>
-                        <h4 class="font-weight-light">--</h4>
+                        <h4 class="font-weight-light">Torneo {{$tournament->name}}</h4>
                     </div>
                 </div>
             </div>
@@ -30,6 +30,8 @@
         <div class="col-8">
             <h5>Información general<h5>
                     <hr>
+                    <input type="text" class="form-control" id="tournament-id" value="{{$tournament->idtournament}}"
+                        hidden>
                     <div class="card">
                         <div class="card-body ">
 

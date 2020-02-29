@@ -6,53 +6,33 @@
     {{--Tournament cards--}}
     <div class="row">
         <div class="col-8">
-            <br>
+            <br><br>
             <h5>Mis torneos<h5>
                     <hr>
+
                     <div class="row">
+                        @foreach ($tournaments as $t)
                         <div class="col-6">
+                            <br>
                             <div class="card" style="width: 22rem;">
                                 <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
                                     class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="">Torneo #1</a></h5>
-                                    <small><span class="badge badge-warning">Liga</span> Febrero 23,
-                                        2020</small><br>
+                                    <h5 class="card-title"><a href="/tournament/{{$t->idtournament}}/info">Torneo
+                                            {{$t->name}}</a></h5>
+                                    <small><span class="badge badge-warning">Liga</span> Iniciado el
+                                        {{date('d-m-Y', strtotime($t->date_init))}}</small><br>
                                     <hr>
-                                    <p class="font-weight-light">Partidos del barrio.</p>
+                                    <p class="font-weight-light">{{$t->description}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="card" style="width: 22rem;">
-                                <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Torneo #2</a></h5>
-                                    <small><span class="badge badge-warning">Copa</span> Febrero 20,
-                                        2020</small><br>
-                                    <hr>
-                                    <p class="font-weight-light">Chamba amigos.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="card" style="width: 22rem;">
-                                <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Torneo #3</a></h5>
-                                    <small><span class="badge badge-warning">Liga</span> Febrero 25,
-                                        2020</small><br>
-                                    <hr>
-                                    <p class="font-weight-light">Torneo interfacultades.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     {{--End--}}
                     <br>
 
@@ -70,7 +50,7 @@
 
         </div>
         <div class="col-4">
-            <br>
+            <br><br>
             <p><a class="btn btn-lg btn-primary" href="{{url('tournament/create')}}" role="button">Añadir torneo</a></p>
             <br>
             <h5>Torneo #1 - Posiciones</h5>

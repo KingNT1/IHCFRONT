@@ -19,13 +19,16 @@ $(document).on("click", "#btn-create-team", function() {
         })
     }
 
+    let tourId = $("#tournament-id").val();
+
     $.ajax({
         type: "POST",
         method: "POST",
-        url: "../../team/create",
+        url: "../../../team/create",
         data: {
             team: teamData,
-            players: playersArray
+            players: playersArray,
+            tournamentId: tourId
         },
         success: function(result) {
             console.log(result.message);
