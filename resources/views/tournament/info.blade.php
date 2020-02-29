@@ -15,131 +15,16 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </main>
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-8">
-            <br><br>
-            <h5>Grupos<h5>
-                    <hr>
-                    <div class="row">
-                        @if(sizeof($teams) >= 8)
-                        <div class="col-4">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center">
-                                    <p class="font-weight-light">
-                                        <br>
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Bravaria
-                                    </p>
-                                </li>
-
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Barbatos
-                                    </p>
-                                </li>
-
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-real-madrid-28x37.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Celtic
-                                    </p>
-                                </li>
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-celta-vigo-35x39.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Sportland
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center">
-                                    <p class="font-weight-light">
-                                        <br>
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Dream Team
-                                    </p>
-                                </li>
-
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-34x34.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Pulse 200
-                                    </p>
-                                </li>
-
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-barcelona-30x35.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        Over-Ear
-                                    </p>
-                                </li>
-                                <li class="list-group-item text-center">
-                                    <br>
-                                    <p class="font-weight-light">
-                                        <span class="pull-left">
-                                            <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-31x41.png"
-                                                class="img-reponsive img-rounded" />
-                                        </span>
-                                        K.O.
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                        @else
-                        <div class="card col-12">
-                            <div class="card-body font-weight-light">
-                                El torneo no ha llegado al límite de participantes o no hay
-                                equipos registrados.
-                            </div>
-                        </div>
-                        @endif
-                    </div>
-        </div>
-        <div class="col-4">
-        </div>
-    </div>
-
     <br><br>
     <h5>Fixture<h5>
             <hr>
-            @if(sizeof($teams) >= 8)
+            @if(sizeof($teams) >= 5)
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -152,48 +37,12 @@
                 <tbody>
                     @foreach ($matches as $m)
                     <tr>
-                        <td class="text-center">Dream Team</td>
+                        <td class="text-center">{{$m->name1}}</td>
                         <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">Lotus</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
+                        <td class="text-center">{{$m->name2}}</td>
+                        <td class="text-center font-weight-light">{{$m->date}} {{$m->description || ''}}</td>
                     </tr>
                     @endforeach
-                    <tr>
-                        <td class="text-center">Dream Team</td>
-                        <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">Lotus</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">Bavaria</td>
-                        <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">Sportland</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">Celtic</td>
-                        <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">K.O.</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">Barbatos</td>
-                        <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">Pulse 200</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">Over-Ear</td>
-                        <td class="text-center font-weight-light">VS</td>
-                        <td class="text-center">Celtic</td>
-                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
-                            Victoria</td>
-                    </tr>
                 </tbody>
             </table>
             @else
@@ -202,6 +51,11 @@
                     El torneo no ha llegado al límite de participantes o no hay
                     equipos registrados.
                 </div>
+
+                @if (sizeof($matches) < 5)
+                <a class="btn btn-lg btn-primary" href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir torneo</a>
+
+                @endif
             </div>
             @endif
 
