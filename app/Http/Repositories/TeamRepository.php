@@ -4,9 +4,20 @@ namespace App\Http\Repositories;
 
 use DB;
 use Exception;
+use Validator;
+
 
 class TeamRepository
 {
+
+    public function createView($id)
+    {
+        $tournament = DB::table('tournament')
+            ->where('idtournament', '=', $id)
+            ->get();
+        return view('teams.create')->with(['tournament' => $tournament[0]]);
+    }
+
     //Crea equipo y jugadores
     public function createTeam($request)
     {
@@ -14,6 +25,7 @@ class TeamRepository
 
             $teamData = $request->team;
             $playersData = $request->players;
+            $tournamentId = $request->tournamentId;
 
             //Team
             DB::table('team')->insert(
@@ -31,7 +43,7 @@ class TeamRepository
             //Tournament_has_team
             DB::table('tournament_has_team')->insert(
                 [
-                    'tournament_idtournament' => 2, //id del torneo
+                    'tournament_idtournament' => $tournamentId, //id del torneo
                     'team_idteam' => $lastId[0]->max
                 ]
             );
@@ -43,6 +55,7 @@ class TeamRepository
                     [
                         'name' => $p['playerName'],
                         'position' => $p['playerPosition'],
+                        'number' => $p['playerNumber']
                     ]
                 );
 
@@ -63,13 +76,17 @@ class TeamRepository
         }
     }
 
+    //Información de un equipo (de un determinado torneo)
     public function teamView($id)
     {
         $playersArray = [];
 
-        $teamInfo = DB::table('tournament') 
-            ->join('tournament_has_team', 'tournament.idtournament',
-                '=', 'tournament_has_team.tournament_idtournament'
+        $teamInfo = DB::table('tournament')
+            ->join(
+                'tournament_has_team',
+                'tournament.idtournament',
+                '=',
+                'tournament_has_team.tournament_idtournament'
             )
             ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
             ->join('team_has_player', 'team.idteam', '=', 'team_has_player.team_idteam')
@@ -85,8 +102,8 @@ class TeamRepository
                 'player.name as player_name',
                 'player.position as player_position',
                 'player.number as player_number'
-            )->get(); 
-            //Bota 5 lineas porque son 5 jugadores, pero la data de equipo se repite
+            )->get();
+        //Bota 5 lineas porque son 5 jugadores, pero la data de equipo se repite
 
         //Equipo
         $teamData = array(
@@ -119,4 +136,5 @@ class TeamRepository
             'actualTournament' => $tournament
         ]);
     }
+
 }

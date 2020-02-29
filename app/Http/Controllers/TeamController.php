@@ -18,6 +18,10 @@ class TeamController extends Controller
         return $this->teamRepository->createTeam($request);
     }
 
+    public function createView($id){
+        return $this->teamRepository->createView($id);
+    }
+
     public function teamView($id){
         return $this->teamRepository->teamView($id);
     }

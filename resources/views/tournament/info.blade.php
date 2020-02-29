@@ -10,8 +10,8 @@
                     alt="First slide" style="height:300px;">
                 <div class="container">
                     <div class="carousel-caption text-center">
-                        <h1>Torneo #1</h1>
-                        <h4 class="font-weight-light">Lima, Perú</h4>
+                        <h1>Torneo {{$tournament['name']}}</h1>
+                        <h4 class="font-weight-light">{{$tournament['description']}}</h4>
                     </div>
                 </div>
             </div>
@@ -191,6 +191,7 @@
             <h5>Equipos participantes<h5>
                     <hr><br>
                     <div class="row">
+                        @foreach ($teams as $t)
                         <div class="col-3">
                             <div class="card">
                                 <div class="card-body">
@@ -201,120 +202,15 @@
                                     </div>
                                     <br>
                                     <hr>
-                                    <h5 class="text-center"><a href="/tournament/1/teams/1">Dream Team</a></h5>
-                                    <p class="font-weight-light text-center">DT: Ernesto Cueva</p><br>
+                                    <h5 class="text-center"><a href="/tournament/1/teams/1">{{$t->name}}</a></h5>
+                                    <p class="font-weight-light text-center">DT: {{$t->coach}}</p><br>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-77x99.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Bravaria</h5>
-                                    <p class="font-weight-light text-center">DT: Afredo Ornachea</p><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-75x99.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Sportland</h5>
-                                    <p class="font-weight-light text-center">DT: FallOut</p><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-real-madrid-78x98.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Celtic</h5>
-                                    <p class="font-weight-light text-center">DT: Elías Gorbachov</p><br>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-91x91.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">K.O.</h5>
-                                    <p class="font-weight-light text-center">DT: Elric Johnson</p><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-77x99.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Barbatos</h5>
-                                    <p class="font-weight-light text-center">DT: Lupus Enri</p><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-75x99.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Pulse 200</h5>
-                                    <p class="font-weight-light text-center">DT: Avec Profondes</p><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <br>
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-real-madrid-78x98.png"
-                                            class="img-reponsive img-rounded" alt="...">
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <h5 class="text-center">Over-Ear</h5>
-                                    <p class="font-weight-light text-center">DT: Superior Bass</p><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
 
 </div>
