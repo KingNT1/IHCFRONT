@@ -62,4 +62,61 @@ class TeamRepository
             return response()->json(['message' => 'OK']);
         }
     }
+
+    public function teamView($id)
+    {
+        $playersArray = [];
+
+        $teamInfo = DB::table('tournament') 
+            ->join('tournament_has_team', 'tournament.idtournament',
+                '=', 'tournament_has_team.tournament_idtournament'
+            )
+            ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
+            ->join('team_has_player', 'team.idteam', '=', 'team_has_player.team_idteam')
+            ->join('player', 'player.idplayer', '=', 'team_has_player.player_idplayer')
+            ->where('team.idteam', '=', $id)
+            ->select(
+                'tournament.*',
+                'team.name as team_name',
+                'team.coach as team_coach',
+                'team.initials as team_initials',
+                'team.ubication as team_ubication',
+                'player.idplayer',
+                'player.name as player_name',
+                'player.position as player_position',
+                'player.number as player_number'
+            )->get(); 
+            //Bota 5 lineas porque son 5 jugadores, pero la data de equipo se repite
+
+        //Equipo
+        $teamData = array(
+            'name' => $teamInfo[0]->team_name,
+            'coach' => $teamInfo[0]->team_coach,
+            'initials' => $teamInfo[0]->team_initials,
+            'ubication' => $teamInfo[0]->team_ubication
+        );
+
+        //Jugadores
+        foreach ($teamInfo as $player) {
+            array_push($playersArray, (object) array(
+                'playerName' => $player->player_name,
+                'playerPosition' => $player->player_position,
+                'playerNumber' => $player->player_number
+            ));
+        }
+
+        //Torneo actual
+        $tournament = array(
+            'name' => $teamInfo[0]->name,
+            'description' => $teamInfo[0]->description,
+            'dateInit' => $teamInfo[0]->date_init,
+            'dateEnd' => $teamInfo[0]->date_end
+        );
+
+        return \view('teaminfo')->with([
+            'team' => $teamData,
+            'players' => $playersArray,
+            'actualTournament' => $tournament
+        ]);
+    }
 }

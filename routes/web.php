@@ -27,6 +27,8 @@ Route::get('/home', ['as' => 'home', 'uses' => 'UserController@getHome']);
 
 //Teams
 Route::group(['prefix' => 'team'], function () {
+    Route::get('/info/{id}', ['as' => 'team.info', 'uses' => 'TeamController@teamView']);
+
     Route::post('/create', ['as' => 'team.create', 'uses' => 'TeamController@createTeam']);
 });
 
