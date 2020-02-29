@@ -36,20 +36,19 @@ class UserRepository
                 );
 
                 return \redirect()->route('home')->with(['user' => $response[0]]);
-                
-            }else{
+            } else {
                 return redirect()
                     ->route('user.signinView')
                     ->withErrors('Usuario y/o contraseña incorrecta')
                     ->withInput();
             }
-
         } catch (Exception $ex) {
             return response()->json(['message' => $ex->getMessage()], 500);
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         unset($_SESSION['user_session']);
         return view('home');
     }
@@ -65,6 +64,39 @@ class UserRepository
 
     public function getHome()
     {
-        return view('home');
+        $tournaments = DB::table('tournament')
+            ->where('type', 1)
+            ->get();
+        return view('home')->with(['tournaments' => $tournaments]);
+    }
+
+    public function registerView()
+    {
+        return view('register');
+    }
+
+    public function register($request)
+    {
+        try {
+            $name = trim($request->input('userName'));
+            $email = trim($request->input('userEmail'));
+            $phone = trim($request->input('userPhone'));
+            $password = trim($request->input('userPassword'));
+
+            //Guardando el usuario
+            DB::table('user')->insert(
+                [
+                    'email' => $email,
+                    'password' => $password,
+                    'phone' => $phone,
+                    'name' => $name,
+                ]
+            );
+
+            return \redirect()->route('home')->with(['message' => 'Usuario creado exitosamente, inicie
+            sesión!']);
+        } catch (Exception $ex) {
+            return \back()->withErrors(['Error al registrarse.']);
+        }
     }
 }

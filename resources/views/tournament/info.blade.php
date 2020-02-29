@@ -28,6 +28,7 @@
             <h5>Grupos<h5>
                     <hr>
                     <div class="row">
+                        @if(sizeof($teams) > 8)
                         <div class="col-4">
                             <ul class="list-group">
                                 <li class="list-group-item text-center">
@@ -121,24 +122,25 @@
                                 </li>
                             </ul>
                         </div>
+                        @else
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-4">Fluid jumbotron</h1>
+                                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space
+                                    of its parent.</p>
+                            </div>
+                        </div>
+                        @endif
                     </div>
         </div>
         <div class="col-4">
-            <br><br>
-            <h5>Árbitros<h5>
-                    <hr>
-                    <ul class="list-group">
-                        <li class="list-group-item font-weight-light">Cras justo odio</li>
-                        <li class="list-group-item font-weight-light">Dapibus ac facilisis in</li>
-                        <li class="list-group-item font-weight-light">Morbi leo risus</li>
-                        <li class="list-group-item font-weight-light">Porta ac consectetur ac</li>
-                    </ul>
         </div>
     </div>
 
     <br><br>
     <h5>Fixture<h5>
             <hr>
+            @if(sizeof($teams) > 0)
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -149,6 +151,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($matches as $m)
+                    <tr>
+                        <td class="text-center">Dream Team</td>
+                        <td class="text-center font-weight-light">VS</td>
+                        <td class="text-center">Lotus</td>
+                        <td class="text-center font-weight-light">Marzo 03, 08:30 PM <br> Balconcillo, La
+                            Victoria</td>
+                    </tr>
+                    @endforeach
                     <tr>
                         <td class="text-center">Dream Team</td>
                         <td class="text-center font-weight-light">VS</td>
@@ -186,11 +197,20 @@
                     </tr>
                 </tbody>
             </table>
+            @else
+            <div class="card">
+                <div class="card-body font-weight-light">
+                    No existen equipos registrados en el torneo.
+                </div>
+            </div>
+            @endif
+
 
             <br><br>
             <h5>Equipos participantes<h5>
                     <hr><br>
                     <div class="row">
+                        @if(sizeof($teams) > 0)
                         @foreach ($teams as $t)
                         <div class="col-3">
                             <div class="card">
@@ -208,6 +228,13 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <div class="card">
+                            <div class="card-body font-weight-light">
+                                No existen equipos registrados en el torneo.
+                            </div>
+                        </div>
+                        @endif
                     </div>
                     <br>
 
