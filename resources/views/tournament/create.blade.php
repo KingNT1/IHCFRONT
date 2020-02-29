@@ -1,4 +1,7 @@
 @extends('layout')
+@section('scripts')
+<script src="{{URL::asset('js/tournamentOperations.js')}}"></script>
+@endsection
 
 @section('content')
 
@@ -20,6 +23,15 @@
     </div>
 </main>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="container">
 
     {{--Tournament cards--}}
@@ -29,65 +41,62 @@
             <h5>Brindenos algunos datos para crear su torneo<h5>
                     <hr>
                     <!-- Default form contact -->
-                    <form class="text-center border border-light p-5" action="#!">
+                    <form method="POST" class="text-center border border-light p-5"
+                        action="{{ route('tournament.save') }}">
+                        @csrf
+                        @method('POST')
 
                         <!-- Alias -->
-                        <input type="text" id="defaultContactFormName" class="form-control mb-4"
-                            placeholder="Nombre o Alias del torneo">
-
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <!-- Name -->
-                                <input type="text" id="defaultContactFormEmail" class="form-control mb-4"
-                                    placeholder="Responsable">
-                            </div>
-                            <div class="form-group col-6">
-                                <!-- Email -->
-                                <input type="email" id="defaultContactFormEmail" class="form-control mb-4"
-                                    placeholder="E-mail">
-                            </div>
-                        </div>
+                        <input type="text" id="defaultContactFormName" name="name" class="form-control mb-4"
+                            placeholder="Nombre o Alias del torneo" required>
 
                         <div class="row">
                             <div class="form-group col-6 font-weight-normal">
                                 <!-- Name -->
                                 <label for="">Fecha de inicio</label>
-                                <input type="date" class="form-control mb-4" placeholder="Fecha inicio">
+                                <input type="date" class="form-control mb-4" name="date-init" placeholder="Fecha inicio"
+                                    required>
                             </div>
                             <div class="form-group col-6 font-weight-normal">
                                 <!-- Email -->
                                 <label for="">Fecha de final</label>
-                                <input type="date" class="form-control mb-4" placeholder="Fecha fin">
+                                <input type="date" class="form-control mb-4" name="date-end" placeholder="Fecha fin"
+                                    required>
                             </div>
                         </div>
 
                         <!-- Subject -->
-                        <select class="browser-default custom-select mb-4" disabled>
-                            <option value="1" selected>Fútbol sala</option>
-                            <option value="2">Voley</option>
-                            <option value="3">Baloncesto</option>
-                            <option value="4">Tenis</option>
+                        <select class="browser-default custom-select mb-4" id="deport_id" required>
+                            <option value="" selected hidden disabled>Escoja su deporte</option>
+                            @foreach ($deports as $d)
+                            <option value="{{$d->iddeport}}">{{$d->name}}</option>
+                            @endforeach
                         </select>
 
                         <!-- Subject -->
-                        <select class="browser-default custom-select mb-4">
-                            <option value="" selected disabled>Escoja el tipo de torneo</option>
-                            <option value="1">Liga</option>
-                            <option value="2">Copa</option>
-                            <option value="3">Mini Campeonato</option>
-                            <option value="4">Amistoso</option>
+                        <select class="browser-default custom-select mb-4" id="type_tournament" name="type-tournament" required>
+                            <option value="" selected hidden disabled>Escoja el tipo de torneo</option>
+                        </select>
+
+
+                        <label for="">Clase de torneo</label>
+                        <!-- Subject -->
+                        <select class="browser-default custom-select mb-4" name="type" required>
+                            <option value="1" selected>Público</option>
+                            <option value="2">Privado</option>
                         </select>
 
                         <!-- Message -->
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="6"
-                                placeholder="Descripción del torneo"></textarea>
+                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" name="description"
+                                rows="6" placeholder="Descripción del torneo"></textarea>
                         </div>
 
                         <!-- Copy -->
                         <div class="custom-control custom-checkbox mb-4 font-weight-light">
                             <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-                            <label class="custom-control-label" for="defaultContactFormCopy">Enviarme una copia</label>
+                            <label class="custom-control-label" for="defaultContactFormCopy">Enviarme una copia al
+                                correo.</label>
                         </div>
 
                         <!-- Send button -->
