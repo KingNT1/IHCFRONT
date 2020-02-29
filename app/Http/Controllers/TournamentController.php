@@ -110,6 +110,7 @@ class TournamentController extends Controller
             ->where('tournament.idtournament', '=', $id)
             ->select(
                 'tournament.*',
+                'team.idteam as team_id',
                 'team.name as team_name',
                 'team.coach as team_coach',
                 'team.initials as team_initials',
@@ -121,6 +122,7 @@ class TournamentController extends Controller
 
         foreach ($response as $team) {
             array_push($teamsArray, (object) array(
+                'id' => $team->team_id,
                 'name' => $team->team_name,
                 'coach' => $team->team_coach,
                 'initials' => $team->team_initials,

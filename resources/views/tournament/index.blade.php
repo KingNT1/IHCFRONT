@@ -26,123 +26,27 @@
     <h5>En curso<h5>
             <hr>
             <div class="row">
+                @foreach ($tournaments as $t)
                 <div class="col-4">
+                    <br>
                     <div class="card" style="width: 22rem;">
                         <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/tournament/1/info">Torneo #1</a></h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
+                            <h5 class="card-title"><a href="/tournament/1/info">Torneo {{$t->name}}</a></h5>
+                            <small><span class="badge badge-warning">Liga</span> Iniciado el
+                                {{date('d-m-Y', strtotime($t->date_init))}}</small><br>
                             <hr>
-                            <p class="font-weight-light">Light weight text.</p>
+                            <p class="font-weight-light">{{$t->description}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #2</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #3</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <br>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #4</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #5</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #6</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <br>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #7</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #8</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" style="width: 22rem;">
-                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/news-2-1-368x287.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Torneo #9</h5>
-                            <small><span class="badge badge-warning">Tournament</span> Febrero 20, 2020</small><br>
-                            <hr>
-                            <p class="font-weight-light">Light weight text.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
+            {{--
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">
@@ -155,7 +59,7 @@
                         <a class="page-link" href="#">Siguiente</a>
                     </li>
                 </ul>
-            </nav>
+            </nav>--}}
 </div>
 
 @endsection
