@@ -32,4 +32,14 @@ class UserController extends Controller
         return $this->userRepository->signinView();
     }
 
+    public function registerView()
+    {
+        return $this->userRepository->registerView();
+    }
+
+    public function register(Request $request)
+    {
+        return $this->userRepository->register($request);
+    }
+
 }

@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'signin',
         'team/create',
-        'tournament/type_tournament'
+        'tournament/type_tournament',
+        'register'
     ];
 }

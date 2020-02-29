@@ -61,6 +61,7 @@
 </main>
 
 <div class="container">
+
   {{--Tournament cards--}}
   <div class="row">
     <div class="col-8">
