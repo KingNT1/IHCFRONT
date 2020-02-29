@@ -22,7 +22,7 @@
 <div class="container">
 
 
-    @if(sizeof($teams) >= 8)
+    @if(sizeof($teams) >= 5 && sizeof($matches) > 0)
     <br><br>
     <h5>Fixture<h5>
             <hr>

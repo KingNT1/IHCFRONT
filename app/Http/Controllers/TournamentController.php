@@ -281,7 +281,7 @@ class TournamentController extends Controller
             }
 
             // dd($data);
-            $response = DB::table('match')->insert($data);
+            $response = DB::table('matches')->insert($data);
 
             if ($response) {
                 return redirect(route('tournament.personal'));
