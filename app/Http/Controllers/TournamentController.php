@@ -293,6 +293,26 @@ class TournamentController extends Controller
         }
     }
 
+    public function matchGoals(Request $request)
+    {
+        try {
+
+            for ($i = 0; $i < sizeof($request->input('date')); $i++) {
+
+                DB::table('match')
+                    ->where('idmatch', (int) ($request->input('idmatch')[$i]))
+                    ->update([
+                        'goal1' => (int) ($request->input('goal-1')[$i]),
+                        'goal2' => (int) ($request->input('goal-2')[$i]),
+                    ]);
+            }
+
+            return redirect(route('tournament.personal'));
+        } catch (\Exception $ex) {
+            return \back()->withErrors([$ex->getMessage()]);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

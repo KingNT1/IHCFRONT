@@ -53,7 +53,7 @@
                 </div>
 
                 @if (sizeof($matches) < 5)
-                <a class="btn btn-lg btn-primary" href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir torneo</a>
+                <a class="btn btn-lg btn-primary" href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir encuentros</a>
 
                 @endif
             </div>
