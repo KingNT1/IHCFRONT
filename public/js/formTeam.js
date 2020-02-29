@@ -15,6 +15,7 @@ $(document).on("click", "#btn-create-team", function() {
         playersArray.push({
             playerName: $(`#player-name-${i+1}`).val(),
             playerPosition: $(`#player-pos-${i+1} option:selected`).text(),
+            playerNumber: $(`#player-number-${i+1}`).val()
         })
     }
 

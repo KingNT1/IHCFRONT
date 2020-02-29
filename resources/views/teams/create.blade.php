@@ -36,7 +36,7 @@
                             <div class="form-group font-weight-normal">
                                 <label for="inputAddress">Nombre del equipo</label>
                                 <input type="text" class="form-control" id="team-name"
-                                    placeholder="Coloca un nombre genial para tu equipo...">
+                                    placeholder="Coloca un nombre genial para tu equipo..." required>
                             </div>
                             <div class="form-row font-weight-normal">
                                 <div class="form-group col-md-6">
@@ -58,12 +58,12 @@
                             <h5>Jugadores<h5>
                                     <hr>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-5 font-weight-normal">
                                             <label for="inputAddress2">Jugador #1</label>
                                             <input type="text" class="form-control" id="player-name-1"
                                                 placeholder="Enrique Alarcón">
                                         </div>
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-4 font-weight-normal">
                                             <label for="inputCity">Posición</label>
                                             <select class="custom-select" id="player-pos-1">
                                                 <option value="0">Selecciona una posición...</option>
@@ -73,14 +73,18 @@
                                                 <option value="4">Arquero</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-3 font-weight-normal">
+                                            <label for="inputAddress2">Número de dorsal</label>
+                                            <input type="text" class="form-control" id="player-number-1" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-5 font-weight-normal">
                                             <label for="inputAddress2">Jugador #2</label>
                                             <input type="text" class="form-control" id="player-name-2" placeholder="">
                                         </div>
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-4 font-weight-normal">
                                             <label for="inputCity">Posición</label>
                                             <select class="custom-select" id="player-pos-2">
                                                 <option value="0">Selecciona una posición...</option>
@@ -90,13 +94,17 @@
                                                 <option value="4">Arquero</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-3 font-weight-normal">
+                                            <label for="inputAddress2">Número de dorsal</label>
+                                            <input type="text" class="form-control" id="player-number-2" placeholder="">
+                                        </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-5 font-weight-normal">
                                             <label for="inputAddress2">Jugador #3</label>
                                             <input type="text" class="form-control" id="player-name-3" placeholder="">
                                         </div>
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-4 font-weight-normal">
                                             <label for="inputCity">Posición</label>
                                             <select class="custom-select" id="player-pos-3">
                                                 <option value="0">Selecciona una posición...</option>
@@ -106,13 +114,17 @@
                                                 <option value="4">Arquero</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-3 font-weight-normal">
+                                            <label for="inputAddress2">Número de dorsal</label>
+                                            <input type="text" class="form-control" id="player-number-3" placeholder="">
+                                        </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-5 font-weight-normal">
                                             <label for="inputAddress2">Jugador #4</label>
                                             <input type="text" class="form-control" id="player-name-4" placeholder="">
                                         </div>
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-4 font-weight-normal">
                                             <label for="inputCity">Posición</label>
                                             <select class="custom-select" id="player-pos-4">
                                                 <option value="0">Selecciona una posición...</option>
@@ -122,13 +134,17 @@
                                                 <option value="4">Arquero</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-3 font-weight-normal">
+                                            <label for="inputAddress2">Número de dorsal</label>
+                                            <input type="text" class="form-control" id="player-number-4" placeholder="">
+                                        </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-5 font-weight-normal">
                                             <label for="inputAddress2">Jugador #5</label>
                                             <input type="text" class="form-control" id="player-name-5" placeholder="">
                                         </div>
-                                        <div class="form-group col-md-6 font-weight-normal">
+                                        <div class="form-group col-md-4 font-weight-normal">
                                             <label for="inputCity">Posición</label>
                                             <select class="custom-select" id="player-pos-5">
                                                 <option value="0">Selecciona una posición...</option>
@@ -137,6 +153,10 @@
                                                 <option value="3">Mediocampista</option>
                                                 <option value="4">Arquero</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group col-md-3 font-weight-normal">
+                                            <label for="inputAddress2">Número de dorsal</label>
+                                            <input type="text" class="form-control" id="player-number-5" placeholder="">
                                         </div>
                                     </div>
 

@@ -4,6 +4,8 @@ namespace App\Http\Repositories;
 
 use DB;
 use Exception;
+use Validator;
+
 
 class TeamRepository
 {
@@ -11,6 +13,20 @@ class TeamRepository
     public function createTeam($request)
     {
         if ($request->ajax()) {
+
+            $validate = Validator::make($request->all(), [
+                'teamData.name' => 'required',
+                'teamData.coach' => 'required',
+                'teamData.initials' => 'required',
+                'teamData.ubication' => 'required'
+            ]);
+
+            if ($validate->fails()) {
+                return response()->json([
+                    'errors' => $validate->getMessageBag()->toArray(),
+                    'status' => 422,
+                ], 422);
+            }
 
             $teamData = $request->team;
             $playersData = $request->players;
@@ -43,6 +59,7 @@ class TeamRepository
                     [
                         'name' => $p['playerName'],
                         'position' => $p['playerPosition'],
+                        'number' => $p['playerNumber']
                     ]
                 );
 
