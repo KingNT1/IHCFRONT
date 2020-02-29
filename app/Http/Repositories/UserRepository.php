@@ -50,7 +50,10 @@ class UserRepository
     public function logout()
     {
         unset($_SESSION['user_session']);
-        return view('home');
+        $tournaments = DB::table('tournament')
+            ->where('type', 1)
+            ->get();
+        return view('home')->with(['tournaments' => $tournaments]);
     }
 
     public function signinView()
