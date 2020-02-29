@@ -130,7 +130,7 @@ class TeamRepository
             'dateEnd' => $teamInfo[0]->date_end
         );
 
-        return \view('teaminfo')->with([
+        return \view('teams.info')->with([
             'team' => $teamData,
             'players' => $playersArray,
             'actualTournament' => $tournament

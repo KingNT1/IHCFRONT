@@ -198,11 +198,11 @@
                                     <div class="text-center">
                                         <br>
                                         <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-dream-team-91x91.png"
-                                            class="img-reponsive img-rounded" alt="...">
+                                            class="img-reponsive img-rounded" alt="{{$t->name}}">
                                     </div>
                                     <br>
                                     <hr>
-                                    <h5 class="text-center"><a href="/tournament/1/teams/1">{{$t->name}}</a></h5>
+                                    <h5 class="text-center"><a href="/team/info/{{$t->id}}">{{$t->name}}</a></h5>
                                     <p class="font-weight-light text-center">DT: {{$t->coach}}</p><br>
                                 </div>
                             </div>

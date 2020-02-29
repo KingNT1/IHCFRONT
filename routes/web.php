@@ -44,8 +44,6 @@ Route::group(['prefix' => 'tournament'], function () {
 
     Route::post('type_tournament', ['as' => 'tournament.type', 'uses' => 'TournamentController@typeByDeport']);
     Route::post('', ['as' => 'tournament.save', 'uses' => 'TournamentController@store']);
-    Route::get('1/teams/1', function () {
-        return view('teaminfo');
-    });
+    
 });
 

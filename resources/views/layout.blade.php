@@ -52,15 +52,19 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/home">Inicio<span class="sr-only">(current)</span></a>
                 </li>
+                @if(isset($_SESSION['user_session']))
                 <li class="nav-item">
                     <a class="nav-link" href="/tournament/create">Organizar torneo</a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="/tournament">Torneos en curso</a>
                 </li>
+                @if(isset($_SESSION['user_session']))
                 <li class="nav-item">
                     <a class="nav-link" href="/tournament/personal">Mis torneos</a>
                 </li>
+                @endif
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -101,6 +105,9 @@
                             <input class="btn btn-primary" type="submit" name="submit" value="Login">
                         </form>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Regístrate</a>
                 </li>
                 @endif
             </ul>
