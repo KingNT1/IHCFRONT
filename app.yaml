@@ -1,5 +1,4 @@
-runtime: php
-env: flex
+runtime: php72
 service: ihc
 
 runtime_config:
@@ -8,6 +7,8 @@ runtime_config:
 env_variables:
   APP_LOG: errorLog
   APP_KEY: base64:XC65MZDrMHVSgilzDOrGLevgn6EQtBBOr755g+TdI4I=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
   CACHE_DRIVER: database
   SESSION_DRIVER: database
 
@@ -19,7 +20,7 @@ env_variables:
   DB_DATABASE: dream-starts
   DB_USERNAME: root
   DB_PASSWORD: root
-  DB_SOCKET: /cloudsql/skillful-way-264720:us-east1:dream-stars
+  DB_SOCKET: "/cloudsql/skillful-way-264720:us-east1:dream-stars"
 
 beta_settings:
   # for Cloud SQL, set this value to the Cloud SQL connection name,

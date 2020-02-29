@@ -165,7 +165,23 @@ class TournamentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            // dd($request);
+            $response = DB::table('match')->insert([
+                'team1' => $request->input('team-1'),
+                'goal1' => $request->input('goal-1'),
+                'team2' => $request->input('team-2'),
+                'goal2' => $request->input('goal-2'),
+            ]);
+
+            if ($response) {
+                return redirect(route('tournament.personal'));
+            } else {
+                return redirect(route('tournament.info'))->withErrors(['Error al actualizar torneo.']);
+            }
+        } catch (\Exception $ex) {
+            return \back()->withErrors([$ex->getMessage()]);
+        }
     }
 
     /**
