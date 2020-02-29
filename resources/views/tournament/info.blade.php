@@ -21,10 +21,11 @@
 
 <div class="container">
 
+
+    @if(sizeof($teams) >= 8)
     <br><br>
     <h5>Fixture<h5>
             <hr>
-            @if(sizeof($teams) >= 5)
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -46,17 +47,34 @@
                 </tbody>
             </table>
             @else
-            <div class="card">
-                <div class="card-body font-weight-light">
-                    El torneo no ha llegado al límite de participantes o no hay
-                    equipos registrados.
+            <div class="row">
+                <div class="col-8">
+                    <br><br>
+                    <h5>Fixture<h5>
+                            <hr>
+                            <div class="card">
+                                <div class="card-body font-weight-light">
+                                    El torneo no ha llegado al límite de participantes o no hay
+                                    equipos registrados.
+                                </div>
+                            </div>
                 </div>
-
-                @if (sizeof($matches) < 5)
-                <a class="btn btn-lg btn-primary" href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir torneo</a>
-
-                @endif
+                <div class="col-4">
+                    <br><br>
+                    <h5>Acciones<h5>
+                            <hr>
+                            <a class="btn btn-lg btn-info"
+                                href="http://localhost:8000/team/create/t/{{$tournament['idtournament']}}"
+                                role="button">Registrar
+                                equipo</a><br><br>
+                            @if (sizeof($matches) < 5) <a class="btn btn-lg btn-info"
+                                href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir
+                                encuentros</a>
+                                @endif
+                </div>
             </div>
+
+
             @endif
 
 
@@ -77,7 +95,8 @@
                                     </div>
                                     <br>
                                     <hr>
-                                    <h5 class="text-center"><a href="/team/info/{{$t->id}}">{{$t->name}}</a></h5>
+                                    <h5 class="text-center"><a href="/team/info/{{$t->id}}">{{$t->name}}</a>
+                                    </h5>
                                     <p class="font-weight-light text-center">DT: {{$t->coach}}</p><br>
                                 </div>
                             </div>

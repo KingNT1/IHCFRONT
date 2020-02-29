@@ -99,9 +99,10 @@
                         style="padding: 15px; padding-bottom: 10px; width:300px;">
                         <form class="form-horizontal" method="post" action="{{route('user.signin')}}"
                             accept-charset="UTF-8">
-                            <input class="form-control login" type="email" name="userEmail" placeholder="Email"><br>
+                            <input class="form-control login" type="email" name="userEmail" placeholder="Email"
+                                required><br>
                             <input class="form-control login" type="password" name="userPassword"
-                                placeholder="Contraseña"><br>
+                                placeholder="Contraseña" required><br>
                             <input class="btn btn-primary" type="submit" name="submit" value="Login">
                         </form>
                     </div>
