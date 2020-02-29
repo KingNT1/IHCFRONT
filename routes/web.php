@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(url('/home'));
 });
 
 Route::get('/home', function () {
@@ -20,19 +20,12 @@ Route::get('/home', function () {
 });
 
 Route::group(['prefix' => 'tournament'], function () {
-    Route::get('1', function () {
-        return view('tournament');
-    });
-    Route::get('', function () {
-        return view('tournament_list');
-    });
-    Route::get('personal', function () {
-        return view('tournament.index');
-    });
+    Route::get('', ['as' => 'tournament.index', 'uses' => 'TournamentController@index']);
+    Route::get('personal', ['as' => 'tournament.personal', 'uses' => 'TournamentController@personal']);
+    Route::get('create', ['as' => 'tournament.create', 'uses' => 'TournamentController@create']);
+    Route::get('{id}/info', ['as' => 'tournament.show', 'uses' => 'TournamentController@show']);
+
     Route::get('1/teams/1', function () {
         return view('teaminfo');
-    });
-    Route::get('create', function () {
-        return view('tournament.create');
     });
 });
