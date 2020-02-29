@@ -18,4 +18,18 @@ class UserController extends Controller
         return $this->userRepository->signin($request);
     }
 
+    public function logout(){
+        return $this->userRepository->logout();
+    }
+
+    public function getHome()
+    {
+        return $this->userRepository->getHome();
+    }
+
+    public function signinView()
+    {
+        return $this->userRepository->signinView();
+    }
+
 }

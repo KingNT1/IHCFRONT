@@ -3,7 +3,6 @@
 namespace App\Http\Repositories;
 
 use DB;
-use Validator;
 use Exception;
 
 class UserRepository
@@ -36,13 +35,36 @@ class UserRepository
                     "name" => $response[0]->name,
                 );
 
-                return view('home')->with(['user' => $response[0]]);
-            }else{
+                return \redirect()->route('home')->with(['user' => $response[0]]);
                 
+            }else{
+                return redirect()
+                    ->route('user.signinView')
+                    ->withErrors('Usuario y/o contraseña incorrecta')
+                    ->withInput();
             }
 
         } catch (Exception $ex) {
             return response()->json(['message' => $ex->getMessage()], 500);
         }
+    }
+
+    public function logout(){
+        unset($_SESSION['user_session']);
+        return view('home');
+    }
+
+    public function signinView()
+    {
+        if (array_key_exists('user_session', $_SESSION)) {
+            return \redirect()->guest('/home');
+        } else {
+            return \view('home');
+        }
+    }
+
+    public function getHome()
+    {
+        return view('home');
     }
 }

@@ -16,12 +16,20 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', function () {
-    return view('home');
+
+
+Route::get('/', ['as' => 'user.signinView', 'uses' => 'UserController@signinView']);
+Route::post('/signin', ['as' => 'user.signin', 'uses' => 'UserController@signin']);
+Route::get('/close', ['as' => 'user.close', 'uses' => 'UserController@logout']);
+
+//Home
+Route::get('/home', ['as' => 'home', 'uses' => 'UserController@getHome']);
+
+//Teams
+Route::group(['prefix' => 'team'], function () {
+    Route::post('/create', ['as' => 'team.create', 'uses' => 'TeamController@createTeam']);
 });
 
-
-Route::post('/signin', ['as' => 'user.signin', 'uses' => 'UserController@signin']);
 
 
 
