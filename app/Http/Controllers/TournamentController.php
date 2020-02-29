@@ -15,16 +15,18 @@ class TournamentController extends Controller
     public function index()
     {
         $tournaments = DB::table('tournament')
-            ->where('type', 1);
+            ->where('type', 1)
+            ->get();
 
         return view('tournament.index')->with(['tournaments' => $tournaments]);
     }
 
-    public function personal($idUser)
+    public function personal()
     {
         $tournaments = DB::table('tournament')
             ->where('user_iduser', $_SESSION['user_session']['iduser'])
-            ->orWhere('type', 2);
+            ->orWhere('type', 2)
+            ->get();
 
         return view('tournament.personal')->with(['tournaments' => $tournaments]);
     }
@@ -36,17 +38,27 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        $deports = DB::table('deport')->get();
+        if ($_SESSION['user_session']['iduser']) {
+            $deports = DB::table('deport')->get();
 
-        return view('tournament.create')->with(['deports' => $deports]);
+            return view('tournament.create')->with(['deports' => $deports]);
+        } else {
+            return view('home');
+        }
     }
 
     public function typeByDeport(Request $request)
     {
+        if ($request->ajax()) {
 
-        return response()->json([
-            'message' => 'Hola',
-        ], 201);
+            $typeTournaments = DB::table('tournament_type')
+                ->where('deport_iddeport', (int) $request->deportId)
+                ->get();
+
+            return response()->json([
+                'data' => $typeTournaments,
+            ], 200);
+        }
     }
     /**
      * Store a newly created resource in storage.
@@ -56,8 +68,26 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+            // dd($request);
+            $response = DB::table('tournament')->insert([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'date_init' => $request->input('date-init'),
+                'date_end' => $request->input('date-end'),
+                'tournament_type_idtournament_type' => $request->input('type-tournament'),
+                'user_iduser' => $_SESSION['user_session']['iduser'],
+                'type' => $request->input('type'),
+            ]);
 
-        dd($request);
+            if ($response) {
+                return redirect(route('tournament.personal'));
+            } else {
+                return redirect(route('tournament.create'))->withErrors(['Error al registrar torneo.']);
+            }
+        } catch (\Exception $ex) {
+            return \back()->withErrors([$ex->getMessage()]);
+        }
     }
 
     /**

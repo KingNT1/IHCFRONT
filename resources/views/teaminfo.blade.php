@@ -11,8 +11,8 @@
                     alt="First slide" style="height:300px;">
                 <div class="container">
                     <div class="carousel-caption text-center">
-                        <h1>Dream Team</h1>
-                        <h4 class="font-weight-light">Participante del Torneo #1</h4>
+                        <h1>{{$team['name']}}</h1>
+                        <h4 class="font-weight-light">Participante del Torneo "{{$actualTournament['name']}}"</h4>
                     </div>
                 </div>
             </div>
@@ -155,32 +155,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($players as $p)
                             <tr>
-                                <th scope="row" class="text-center">13</th>
-                                <td class="text-center font-weight-light">Christian</td>
-                                <td class="text-center font-weight-light">Defensa</td>
+                                <th scope="row" class="text-center">{{$p->playerNumber}}</th>
+                                <td class="text-center font-weight-light">{{$p->playerName}}</td>
+                                <td class="text-center font-weight-light">{{$p->playerPosition}}</td>
+                            </tr>
+                            @endforeach
 
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">7</th>
-                                <td class="text-center font-weight-light">Antony</td>
-                                <td class="text-center font-weight-light">Defensa</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">9</th>
-                                <td class="text-center font-weight-light">Ricardo</td>
-                                <td class="text-center font-weight-light">Delantero</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">11</th>
-                                <td class="text-center font-weight-light">Bryan</td>
-                                <td class="text-center font-weight-light">Mediocampista</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="text-center">1</th>
-                                <td class="text-center font-weight-light">Player Unknown</td>
-                                <td class="text-center font-weight-light">Arquero</td>
-                            </tr>
+
                         </tbody>
                     </table>
                     <br>
