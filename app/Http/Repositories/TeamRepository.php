@@ -72,7 +72,7 @@ class TeamRepository
                 );
             }
 
-            return response()->json(['message' => 'OK']);
+            return response()->json(['id' => $tournamentId]);
         }
     }
 

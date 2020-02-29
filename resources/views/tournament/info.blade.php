@@ -28,7 +28,7 @@
             <h5>Grupos<h5>
                     <hr>
                     <div class="row">
-                        @if(sizeof($teams) > 8)
+                        @if(sizeof($teams) >= 8)
                         <div class="col-4">
                             <ul class="list-group">
                                 <li class="list-group-item text-center">
@@ -123,11 +123,10 @@
                             </ul>
                         </div>
                         @else
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-4">Fluid jumbotron</h1>
-                                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space
-                                    of its parent.</p>
+                        <div class="card col-12">
+                            <div class="card-body font-weight-light">
+                                El torneo no ha llegado al límite de participantes o no hay
+                                equipos registrados.
                             </div>
                         </div>
                         @endif
@@ -140,7 +139,7 @@
     <br><br>
     <h5>Fixture<h5>
             <hr>
-            @if(sizeof($teams) > 0)
+            @if(sizeof($teams) >= 8)
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -200,7 +199,8 @@
             @else
             <div class="card">
                 <div class="card-body font-weight-light">
-                    No existen equipos registrados en el torneo.
+                    El torneo no ha llegado al límite de participantes o no hay
+                    equipos registrados.
                 </div>
             </div>
             @endif
@@ -208,11 +208,12 @@
 
             <br><br>
             <h5>Equipos participantes<h5>
-                    <hr><br>
+                    <hr>
                     <div class="row">
                         @if(sizeof($teams) > 0)
                         @foreach ($teams as $t)
                         <div class="col-3">
+                            <br>
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-center">
@@ -229,14 +230,15 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="card">
+                        <hr>
+                        <div class="card col-12">
                             <div class="card-body font-weight-light">
                                 No existen equipos registrados en el torneo.
                             </div>
                         </div>
                         @endif
                     </div>
-                    <br>
+                    <br><br><br><br>
 
 
 
