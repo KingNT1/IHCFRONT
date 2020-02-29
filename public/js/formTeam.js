@@ -1,5 +1,9 @@
 $(document).on("click", "#btn-create-team", function() {
 
+    $('#spinner').html(`<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>`);
+
     //Datos de equipo
     let teamData = {
         name: $("#team-name").val(),
@@ -32,7 +36,6 @@ $(document).on("click", "#btn-create-team", function() {
         },
         success: function(result) {
             window.location.href = "../../../tournament/" + result.id + "/info";
-
         },
         error: function() {
             console.log("... error");

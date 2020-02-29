@@ -52,6 +52,7 @@ class UserRepository
         unset($_SESSION['user_session']);
         $tournaments = DB::table('tournament')
             ->where('type', 1)
+            ->take(4)
             ->get();
         return view('home')->with(['tournaments' => $tournaments]);
     }
@@ -73,6 +74,7 @@ class UserRepository
     {
         $tournaments = DB::table('tournament')
             ->where('type', 1)
+            ->take(4)
             ->get();
         return view('home')->with(['tournaments' => $tournaments]);
     }

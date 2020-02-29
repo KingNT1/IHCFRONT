@@ -55,13 +55,13 @@
                                 <!-- Name -->
                                 <label for="">Fecha de inicio</label>
                                 <input type="date" class="form-control mb-4" name="date-init" placeholder="Fecha inicio"
-                                    required>
+                                    min="2020-02-29" required>
                             </div>
                             <div class="form-group col-6 font-weight-normal">
                                 <!-- Email -->
                                 <label for="">Fecha de final</label>
                                 <input type="date" class="form-control mb-4" name="date-end" placeholder="Fecha fin"
-                                    required>
+                                    min="2020-02-29" required>
                             </div>
                         </div>
 
@@ -74,7 +74,8 @@
                         </select>
 
                         <!-- Subject -->
-                        <select class="browser-default custom-select mb-4" id="type_tournament" name="type-tournament" required>
+                        <select class="browser-default custom-select mb-4" id="type_tournament" name="type-tournament"
+                            required>
                             <option value="" selected hidden disabled>Escoja el tipo de torneo</option>
                         </select>
 

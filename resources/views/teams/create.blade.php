@@ -171,83 +171,14 @@
                     </div>
         </div>
         <div class="col-4">
-            <h5>Escudo<h5>
+            <h5>Más información<h5>
                     <hr>
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-bavaria-fc-26x34.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-athletic-33x30.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-sportland-31x41.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-real-madrid-28x37.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-celta-vigo-35x39.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <br>
-                            <p class="font-weight-light">
-                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">
-                                    <span class="pull-left">
-                                        <img src="https://livedemo00.template-help.com/wt_63853_v4/soccer/images/team-barcelona-30x35.png"
-                                            class="img-reponsive img-rounded" />
-                                    </span>
-                                </label>
-                            </p>
-                        </li>
-                    </ul>
-
+                    <div class="card">
+                        <div class="card-body font-weight-normal">
+                            La sigla es la abreviatura que tendrá tu equipo al momento de representar
+                            los resultados o encuentros.
+                        </div>
+                    </div>
         </div>
     </div>
     <br>
