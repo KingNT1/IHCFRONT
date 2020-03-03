@@ -170,6 +170,79 @@ class TournamentController extends Controller
         }
     }
 
+    public function viewMatchMark($id)
+    {
+        $hasTeam = DB::table('tournament_has_team')
+            ->where('tournament_idtournament', '=', $id)
+            ->get();
+
+        if (count($hasTeam) >= 1) {
+            $response = DB::table('tournament')
+                ->join(
+                    'tournament_has_team',
+                    'tournament.idtournament',
+                    '=',
+                    'tournament_has_team.tournament_idtournament'
+                )
+                ->join('team', 'team.idteam', '=', 'tournament_has_team.team_idteam')
+                ->where('tournament.idtournament', '=', $id)
+                ->select(
+                    'tournament.*',
+                    'team.idteam as team_id',
+                    'team.name as team_name',
+                    'team.coach as team_coach',
+                    'team.initials as team_initials',
+                    'team.ubication as team_ubication'
+                )->get();
+
+            $matches = DB::table('matches as m')
+                ->join('team as a1', 'a1.idteam', '=', 'm.team1')
+                ->join('team as b1', 'b1.idteam', '=', 'm.team2')
+                ->where('m.tournament_id', '=', $id)
+                ->select(
+                    'm.idmatch',
+                    'a1.idteam as idTeam1',
+                    'a1.name as name1',
+                    'm.goal1',
+                    'b1.idteam as idTeam2',
+                    'b1.name as name2',
+                    'm.goal2',
+                    'm.date',
+                    'm.description'
+                )
+                ->get();
+
+            //Equipos del torneo
+            $teamsArray = [];
+
+            foreach ($response as $team) {
+                array_push($teamsArray, (object) array(
+                    'id' => $team->team_id,
+                    'name' => $team->team_name,
+                    'coach' => $team->team_coach,
+                    'initials' => $team->team_initials,
+                    'ubication' => $team->team_ubication
+                ));
+            }
+
+            //Info del torneo
+            $tournament = array(
+                'idtournament' => $response[0]->idtournament,
+                'name' => $response[0]->name,
+                'description' => $response[0]->description,
+                'date_init' => $response[0]->date_init,
+                'date_end' => $response[0]->date_end
+            );
+
+            return \view('tournament.info')->with([
+                'tournament' => $tournament,
+                'teams' => $teamsArray,
+                'matches' => $matches
+            ]);
+        } else {
+            return \back()->withErrors(['Ingrese los marcadores.']);
+        }
+    }
     public function matches($id)
     {
 
@@ -288,6 +361,26 @@ class TournamentController extends Controller
             } else {
                 return redirect(route('tournament.info'))->withErrors(['Error al actualizar torneo.']);
             }
+        } catch (\Exception $ex) {
+            return \back()->withErrors([$ex->getMessage()]);
+        }
+    }
+
+    public function updateMatch(Request $request)
+    {
+        try {
+            $data = [];
+
+            for ($i = 0; $i < sizeof($request->input('date')); $i++) {
+                DB::table('mathces')
+                    ->where('idmatch', (int) ($request->input('idmatch')[$i]))
+                    ->update([
+                        'goal1' => (int) ($request->input('goal-1')[$i]),
+                        'goal2' => (int) ($request->input('goal-2')[$i])
+                    ]);
+            }
+
+            return redirect(route('tournament.personal'));
         } catch (\Exception $ex) {
             return \back()->withErrors([$ex->getMessage()]);
         }

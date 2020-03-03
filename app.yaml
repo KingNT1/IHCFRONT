@@ -1,4 +1,5 @@
-runtime: php72
+runtime: php
+env: flex
 service: ihc
 
 runtime_config:

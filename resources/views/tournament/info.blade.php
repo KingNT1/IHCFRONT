@@ -46,6 +46,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <a class="btn btn-lg btn-info"
+            href="{{route('tournament.matches',$tournament['idtournament'])}}" role="button">Añadir
+            marcadores</a>
             @else
             <div class="row">
                 <div class="col-8">
@@ -61,18 +64,28 @@
                 </div>
                 <div class="col-4">
                     <br><br>
+                    @if ($_SESSION)
                     <h5>Acciones<h5>
                             <hr>
+                            @if (sizeof($teams) == 0)
                             <a class="btn btn-lg btn-info"
                                 href="http://localhost:8000/team/create/t/{{$tournament['idtournament']}}"
                                 role="button">Registrar
                                 equipo</a><br><br>
-                            @if (sizeof($matches) < 5) <a class="btn btn-lg btn-info"
+                            @else
+                            @if (sizeof($matches) == 0) <a class="btn btn-lg btn-info"
                                 href="{{route('tournament.match',$tournament['idtournament'])}}" role="button">Añadir
                                 encuentros</a>
+                            @else
+                            <a class="btn btn-lg btn-info"
+                                href="{{route('tournament.matches',$tournament['idtournament'])}}" role="button">Añadir
+                                marcadores</a>
+
                                 @endif
-                </div>
-            </div>
+                                @endif
+                                @endif
+                            </div>
+                        </div>
 
 
             @endif

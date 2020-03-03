@@ -38,9 +38,11 @@ Route::group(['prefix' => 'tournament'], function () {
     Route::get('create', ['as' => 'tournament.create', 'uses' => 'TournamentController@create']);
     Route::get('{id}/info', ['as' => 'tournament.show', 'uses' => 'TournamentController@show']);
     Route::get('{id}/match', ['as' => 'tournament.match', 'uses' => 'TournamentController@matches']);
+    Route::get('{id}/matches', ['as' => 'tournament.matches', 'uses' => 'TournamentController@viewMatchMark']);
 
     Route::post('{id}/update', ['as' => 'tournament.update', 'uses' => 'TournamentController@update']);
     Route::post('type_tournament', ['as' => 'tournament.type', 'uses' => 'TournamentController@typeByDeport']);
     Route::post('', ['as' => 'tournament.save', 'uses' => 'TournamentController@store']);
+    Route::post('match', ['as' => 'tournament.updateMatch', 'uses' => 'TournamentController@updateMatch']);
 
 });
